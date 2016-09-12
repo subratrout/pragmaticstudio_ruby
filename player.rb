@@ -5,6 +5,7 @@ class Player
   def initialize(name, health = 100)
     @name = name.capitalize
     @health = health
+    @found_treasures = Hash.new(0)
   end
 
   def to_s
@@ -27,6 +28,20 @@ class Player
 
   def name=(new_name)
     @name = new_name.capitalize
+  end
+
+  def strong?
+    true if @health > 100
+  end
+
+  def <=>(other)
+    other.score <=> score
+  end
+
+  def found_treasure(treasure)
+    @found_treasures[treasure.name] += treasure.points
+    puts "#{@name} found a #{treasure.name} worth #{treasure.points} points."
+    puts "#{@name}'s treasure: #{@found_treasures}"
   end
 end
 
