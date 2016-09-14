@@ -9,7 +9,7 @@ class Player
   end
 
   def to_s
-    "I am #{@name} with a health of #{@health} and a score of #{score}"
+    "I am #{@name} with health = #{@health}, points = #{points} and a score of #{score}"
   end
 
   def blam
@@ -23,7 +23,11 @@ class Player
   end
 
   def score
-    @health + @name.length
+    @health + points
+  end
+
+  def points
+    @found_treasures.values.reduce(0, :+)
   end
 
   def name=(new_name)

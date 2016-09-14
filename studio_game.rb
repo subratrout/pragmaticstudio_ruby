@@ -84,3 +84,4 @@ knuckleheads.add_player(player2)
 knuckleheads.add_player(player3)
 knuckleheads.play(2)
 knuckleheads.print_stats
+knuckleheads.total_points
