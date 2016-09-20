@@ -46,7 +46,6 @@ describe Game do
     player1.found_treasure(Treasure.new(:hammer, 50))
     player1.found_treasure(Treasure.new(:hammer, 50))
     player2.found_treasure(Treasure.new(:crowbar, 400))
-
     expect(game.total_points).to eq(500)
   end
 

@@ -1,4 +1,5 @@
 require_relative "player"
+require 'pry'
 
 describe Player do
 
@@ -88,5 +89,11 @@ describe Player do
     @player.found_treasure(Treasure.new(:hammer, 50))
 
     @player.points.should == 500
+  end
+
+  it "can be created from a CSV string" do 
+    player = Player.from_csv("larry, 150")
+    expect(player.name).to eq("Larry")
+    expect(player.health).to eq(150)
   end
 end

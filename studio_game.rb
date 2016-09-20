@@ -83,7 +83,7 @@ knuckleheads = Game.new("Knuckleheads")
 # knuckleheads.add_player(player2)
 # knuckleheads.add_player(player3)
 
-knuckleheads.load_players("players.csv")
+knuckleheads.load_players(ARGV.shift || "players.csv")
 
 loop do
   puts "\n How many game rounds? ('quit' to exit)"
@@ -101,3 +101,4 @@ end
 
 
 knuckleheads.total_points 
+knuckleheads.save_high_scores

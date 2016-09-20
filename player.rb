@@ -47,6 +47,11 @@ class Player
     puts "#{@name} found a #{treasure.name} worth #{treasure.points} points."
     puts "#{@name}'s treasure: #{@found_treasures}"
   end
+
+  def self.from_csv(string)
+    name, health = string.split(',')
+    player = Player.new(name, Integer(health))
+  end
 end
 
 if __FILE__ == $0
