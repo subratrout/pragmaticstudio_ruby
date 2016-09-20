@@ -48,6 +48,13 @@ class Player
     puts "#{@name}'s treasure: #{@found_treasures}"
   end
 
+  def each_found_treasure
+    @found_treasures.each do |name, points|
+      next_treasure = Treasure.new(name, points)
+      yield next_treasure
+    end
+  end
+
   def self.from_csv(string)
     name, health = string.split(',')
     player = Player.new(name, Integer(health))
