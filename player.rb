@@ -1,5 +1,9 @@
+require_relative 'playable'
+
 class Player
-  attr_reader :health
+  include Playable
+
+  attr_accessor :name, :health
   attr_accessor :name
 
   def initialize(name, health = 100)
@@ -10,16 +14,6 @@ class Player
 
   def to_s
     "I am #{@name} with health = #{@health}, points = #{points} and a score of #{score}"
-  end
-
-  def blam
-    @health = @health - 10
-    puts "#{@name} got blammed!"
-  end
-
-  def woot
-    @health = @health + 15
-    puts "#{@name} got wooted!"
   end
 
   def score
@@ -34,10 +28,7 @@ class Player
     @name = new_name.capitalize
   end
 
-  def strong?
-    true if @health > 100
-  end
-
+  
   def <=>(other)
     other.score <=> score
   end
